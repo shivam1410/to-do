@@ -4,7 +4,7 @@
 
 <div class="input-group">
   <input type="text" class="form-control" #itemTitle>
-  <input type="text" ngbDatepicker  #d="ngbDatepicker" (click)="d.toggle()" [(ngModel)]="date" />
+  <input type="text" ngbDatepicker  #d="ngbDatepicker" (click)="d.toggle()" [(ngModel)]="date" placeholder="yyyy-mm-dd" />
   <div class="input-group-append input-group-text hover-cursor" (click)="onAdd(itemTitle,date)">
     <i class="fa fa-plus-circle"></i>
   </div>
@@ -13,18 +13,21 @@
 <div style="margin:5px 0px">
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let item of toDoListArray">
-          <div>
-              <span class="hover-cursor" [class.text-success]="item.isChecked" (click)="switchCheck(item.$key,item.isChecked)">
-                  <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
-                </span>
-                {{item.title}}
-                <span class="date pull-right">
-                  {{item.date.day}}-{{item.date.month}}-{{item.date.year}}
-                </span>
-           </div>
-            <div class="hover-cursor text-danger pull-right" (click)="onDelete(item.$key)">
-              <i class="fa fa-trash-o fa-lg"></i>
+          <div class="d-flex" style="width:100%">
+            <span class="hover-cursor" style="width:10%" [class.text-success]="item.isChecked" (click)="switchCheck(item.$key,item.isChecked)">
+              <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
+            </span>
+            <div (click)="editTitle(item.$key,item.title)" style="width:80%">
+              <span >{{item.title}}</span>
+              <span class="date pull-right">
+                {{item.date.day}}-{{item.date.month}}-{{item.date.year}}
+              </span>
             </div>
+          </div>
+          <div class="hover-cursor text-danger pull-right" style="width:10%" (click)="onDelete(item.$key)">
+            <i class="fa fa-trash-o fa-lg"></i>
+          </div>
+            
      
     </li>
   </ul>

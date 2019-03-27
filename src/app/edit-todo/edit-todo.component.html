@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Edit your task</h1>
+
+<div mat-dialog-content>
+    <!-- <input  [(ngModel)]="data.title" value="{{data.title}}"> -->
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.title">
+    </mat-form-field>
+    <!-- <textarea [(ngModel)]="data.title">{{data.title}}</textarea> -->
+  <input  type="text" ngbDatepicker  #d="ngbDatepicker" (click)="d.toggle()" [(ngModel)]="data.date" placeholder="yyyy-mm-dd" />
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

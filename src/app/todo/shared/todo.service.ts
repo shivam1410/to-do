@@ -21,6 +21,10 @@ export class TodoService {
     });
   }
 
+  editTitle($key:string ,title: string,date:any) {
+    this.toDoList.update($key,{title: title,
+    date: date});
+  }
   checkOrUncheckTitle($key: string, flag: boolean) {
     this.toDoList.update($key, { isChecked: flag});
   }
