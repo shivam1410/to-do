@@ -1,0 +1,17 @@
+ node {
+     stage('checl'){
+
+     }
+
+     stage(''){
+         
+     }
+
+     stage(''){
+         
+     }
+
+     stage(''){
+         
+     }
+ }

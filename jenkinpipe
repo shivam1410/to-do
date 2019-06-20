@@ -1,0 +1,18 @@
+ node {
+     stage('check SCM'){
+         git branch: 'master', url: 'git@github.com:shivam1410/to-do.git'
+     }
+
+     stage('install node module'){
+         sh "npm install"
+     }
+
+     stage('build'){
+         sh "ng build --prod"
+     }
+
+     stage('Deploy'){
+         sh "npm install -D firebase-tools"
+         sh "firebase deploy --project "to-do-18eaf" --token '1/m_6llVOgbUZQsu6LKuEA3Y1q8NcqQ9Ce6K7sRnFYM2Y'"
+     }
+ }
