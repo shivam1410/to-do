@@ -13,6 +13,6 @@
 
      stage('Deploy'){
          sh "npm install -D firebase-tools"
-         sh "firebase deploy --project "to-do-18eaf" --token '1/m_6llVOgbUZQsu6LKuEA3Y1q8NcqQ9Ce6K7sRnFYM2Y'"
+         sh "firebase deploy --project 'to-do-18eaf' --token '1/m_6llVOgbUZQsu6LKuEA3Y1q8NcqQ9Ce6K7sRnFYM2Y'"
      }
  }
