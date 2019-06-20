@@ -23,8 +23,8 @@ export class TodoComponent implements OnInit {
         let x = element.payload.toJSON();
         x['$key'] = element.key;
         this.toDoListArray.push(x);
+        console.log(x);
       });
-
       this.toDoListArray.sort((a, b) => {
         return a.isChecked - b.isChecked ;
       });
