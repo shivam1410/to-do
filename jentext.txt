@@ -1,0 +1,4 @@
+npm install
+ng build --prod
+npm install -D firebase-tools
+firebase deploy --project 'to-do-18eaf' --token "1/1-yQ-s0ZFjL_ax7iWWjwy6S8qgFoj-D3U2nNXBBPEqQ"
