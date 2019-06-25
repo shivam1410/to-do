@@ -8,10 +8,12 @@
      }
 
      stage('build'){
-         sh "ng build --prod"
+         sh "ng build --base-href=/todo/ --prod"
      }
 
      stage('Deploy'){
-	 sh "cp -fr dist /home/shivam/Desktop/tomcat/webapps/to-do/"
+	sh "rm -fr /root/tomcat/webapps/todo"
+	sh "mkdir /root/tomcat/webapps/todo"
+	sh "mv dist /root/tomcat/webapps/todo"
      }
  }
