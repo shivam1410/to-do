@@ -12,7 +12,8 @@
      }
 
      stage('Deploy'){
-	sh "ls -la dist"
-
+	sh "rm -fr /root/tomcat/webapps/todo"
+	sh "mkdir /root/tomcat/webapps/todo"
+	sh "mv dist/to-do /root/tomcat/webapps/todo"
      }
  }
