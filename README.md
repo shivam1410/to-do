@@ -10,5 +10,23 @@
  
   I have used basic Angular material for provideing styling and animation offered by google.\
   I have used firebase for the database, that will store the list of tasks.
- 
-
+  
+    "@angular/animations": "^7.2.15",
+    "@angular/cdk": "^7.3.6",
+    "@angular/common": "^7.2.15",
+    "@angular/compiler": "^6.1.0",
+    "@angular/core": "^7.2.15",
+    "@angular/forms": "^6.1.0",
+    "@angular/http": "^6.1.0",
+    "@angular/material": "^7.3.6",
+    "@angular/platform-browser": "^6.1.0",
+    "@angular/platform-browser-dynamic": "^6.1.0",
+    "@angular/router": "^6.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.1.0",
+    "angularfire2": "^5.1.2",
+    "core-js": "^2.5.4",
+    "firebase": "^5.9.1",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.4.1",
+    "rxjs": "^6.5.2",
+    "zone.js": "~0.8.26"
