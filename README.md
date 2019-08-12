@@ -7,9 +7,6 @@
  every task  is provided with an option to delete it.
  
  # Frameworks/libraries used
- 
-  I have used basic Angular material for provideing styling and animation offered by google.\
-  I have used firebase for the database, that will store the list of tasks.
   
     "@angular/animations": "^7.2.15",
     "@angular/cdk": "^7.3.6",
