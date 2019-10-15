@@ -14,7 +14,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { TodoComponent } from './todo/todo.component';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
 @NgModule({

@@ -1,0 +1,60 @@
+:root{
+    --primary: #0c2e64;
+    --secondary: #29b6f6;
+    --tertiary: #2d4792;
+    --dark-grey: #424242;
+    --light-grey: #737373;
+    --very-light-grey: #9e9e9e;
+}
+
+.hover-cursor {
+    cursor: pointer;
+}
+.date {
+    font-size: 80%;
+    color: rgba(22, 21, 21, 0.74);
+}
+.material-icons.md-18 {
+font-size: 18px !important;
+height: 18px !important;
+width: 18px !important;
+}
+.material-icons.md-24 {
+font-size: 24px !important;
+height: 24px !important;
+width: 24px !important;
+}
+.material-icons.md-36 {
+font-size: 36px !important;
+height: 36px !important;
+width: 36px !important;
+}
+.material-icons.md-48 {
+font-size: 48px !important;
+height: 48px !important;
+width: 48px !important;
+}
+.add-button{
+    height: fit-content;
+    width: fit-content;
+}
+
+.input-group i{ 
+    color: #424242;;
+}
+li:hover {
+    background-color: #e4e4e4;
+    transition : 0.5s;
+}
+li{
+    transition: 0.5s;
+}
+
+li .delete-icon i{
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+li:hover .delete-icon i{
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+}

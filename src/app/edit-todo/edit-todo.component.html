@@ -1,12 +1,19 @@
 <h1 mat-dialog-title>Edit your task</h1>
 
-<div mat-dialog-content>
+<div mat-dialog-content class="d-flex justify-content-between align-items-center">
     <!-- <input  [(ngModel)]="data.title" value="{{data.title}}"> -->
-    <mat-form-field>
-      <input matInput [(ngModel)]="data.title">
+    <mat-form-field style="width: 70%;" >
+      <textarea #itemTitle matInput class="form-control" [(ngModel)]="data.title"></textarea>
     </mat-form-field>
+    <!-- <mat-form-field>
+      <input matInput [(ngModel)]="data.title">
+    </mat-form-field> -->
     <!-- <textarea [(ngModel)]="data.title">{{data.title}}</textarea> -->
-  <input  type="text" ngbDatepicker  #d="ngbDatepicker" (click)="d.toggle()" [(ngModel)]="data.date" placeholder="yyyy-mm-dd" />
+    <i #buttonEl class="material-icons hover-cursor md-48" (click)="d.toggle()" >
+        calendar_today
+      </i>
+      <input type="hidden" ngbDatepicker  #d="ngbDatepicker"  [(ngModel)]="data.date"/>
+  <!-- <input  type="text" ngbDatepicker  #d="ngbDatepicker" (click)="d.toggle()" [(ngModel)]="data.date" placeholder="yyyy-mm-dd" /> -->
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

@@ -3,16 +3,19 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialog} from '@angular/material';
 import { EditTodoComponent } from '../edit-todo/edit-todo.component';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
   toDoListArray: any[];
   date: NgbDate;
-  title: string;
+  edTitle: string;
+  edDate: NgbDate;
+  hover: false;
   constructor(private toDoService: TodoService ,private dialog: MatDialog) { }
 
   ngOnInit() {
@@ -45,18 +48,24 @@ export class TodoComponent implements OnInit {
     this.toDoService.removeTitle($key);
   }
 
-  editTitle($key,title): void {
-    // this.dialog.open(EditTodoComponent);
-    console.log($key);
-    this.title=title;
+  editTitle($key,title,date): void {
+
+    this.edTitle=title;
+    this.edDate = date;
     const dialogRef = this.dialog.open(EditTodoComponent, {
-      width: '250px',
-      data: {title: this.title, date: this.date}
+      width: '300px',
+      data: {title: this.edTitle, date: this.edDate}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(res => {
       console.log('The dialog was closed');
-      this.toDoService.editTitle($key,result.title,result.date);
+      if(res) {
+        console.log(res)
+        this.toDoService.editTitle($key,res.title,res.date);
+      }
+    },
+    ()=>{
+      console.log("ddd")
     });
   }
 
