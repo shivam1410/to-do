@@ -17,11 +17,13 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment.prod';
 import { TodoComponent } from './todo/todo.component';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    EditTodoComponent
+    EditTodoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

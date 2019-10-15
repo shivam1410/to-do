@@ -1,44 +1,49 @@
-<div class="jumbotron" style="padding:45px 0px">
-  <h4 class="text-center">Keep-it </h4>
-</div>
-
-<div class="input-group d-flex justify-content-between align-items-center">
-  <mat-form-field style="width: 70%;" >
-    <textarea #itemTitle matInput class="form-control" placeholder="Leave a Note"></textarea>
-  </mat-form-field>
-  <i #buttonEl class="material-icons hover-cursor md-36" (click)="d.toggle()" >
-    calendar_today
-  </i>
-  <input type="hidden" ngbDatepicker  #d="ngbDatepicker" [(ngModel)]="date"/>
-  <button [disabled]="!itemTitle.value||!date" id="addButton" mat-raised-button class="add-button" (click)="onAdd(itemTitle,date)" >
-    <i class="material-icons hover-cursor md-36">
-      add
-    </i>
-  </button>
-  
-
-</div>
-
-<div style="margin:5px 0px">
-  <ul class="list-group">
-    <li class=" d-flex flex-column" *ngFor="let item of toDoListArray">
-      <div class="note d-flex justify-content-between align-items-center mt-1" >
-          <div style="width: 5%;" [class.text-success]="item.isChecked" (click)="switchCheck(item.$key,item.isChecked)">
-              <i class="fa fa-lg hover-cursor" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
-            </div>
-            <div class="hover-cursor pr-2 d-flex justify-content-between align-items-baseline" (click)="editTitle(item.$key,item.title,item.date)" style="width:88%">
-                <span >{{item.title}}</span>
-                <span class="date pull-right">
-                  {{item.date.day}}-{{item.date.month}}-{{item.date.year}}
-                </span>
-            </div>
-            <div class="delete-icon hover-cursor text-danger pull-right d-flex " style="width:fit-content" (click)="onDelete(item.$key)">
-              <i class="material-icons md-18">
-                delete
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 pb-2">
+          
+          <div class="input-group d-flex justify-content-between align-items-center">
+            <mat-form-field style="width: 70%;" >
+              <textarea #itemTitle matInput class="form-control" placeholder="Leave a Note"></textarea>
+            </mat-form-field>
+            <i #buttonEl class="material-icons hover-cursor md-36" (click)="d.toggle()" >
+              calendar_today
+            </i>
+            <input type="hidden" ngbDatepicker  #d="ngbDatepicker" [(ngModel)]="date"/>
+            <button [disabled]="!itemTitle.value||!date" id="addButton" mat-raised-button class="add-button" (click)="onAdd(itemTitle,date)" >
+              <i class="material-icons hover-cursor md-36">
+                add
               </i>
-            </div>
-      </div>
-      <div class="ruler"></div>
-    </li>
-  </ul>
+            </button>
+            
+          
+          </div>
+          
+          <div style="margin:5px 0px">
+            <ul class="list-group">
+              <li class=" d-flex flex-column" *ngFor="let item of toDoListArray">
+                <div class="note d-flex justify-content-between align-items-center mt-1" >
+                    <div style="width: 5%;" [class.text-success]="item.isChecked" (click)="switchCheck(item.$key,item.isChecked)">
+                        <i class="fa fa-lg hover-cursor" [ngClass]="item.isChecked?'fa-check-circle-o':'fa-circle-thin'"></i>
+                      </div>
+                      <div class="hover-cursor pr-2 d-flex justify-content-between align-items-baseline" (click)="editTitle(item.$key,item.title,item.date)" style="width:88%">
+                          <span >{{item.title}}</span>
+                          <span class="date pull-right">
+                            {{item.date.day}}-{{item.date.month}}-{{item.date.year}}
+                          </span>
+                      </div>
+                      <div class="delete-icon hover-cursor text-danger pull-right d-flex " style="width:fit-content" (click)="onDelete(item.$key)">
+                        <i class="material-icons md-18">
+                          delete
+                        </i>
+                      </div>
+                </div>
+                <div class="ruler"></div>
+              </li>
+            </ul>
+          </div>
+          
+    </div>
+  </div>
 </div>
