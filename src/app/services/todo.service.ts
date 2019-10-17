@@ -8,8 +8,8 @@ export class TodoService {
   constructor(private firebasedb: AngularFireDatabase) { }
 
   getToDoList(uid) {
-    return this.firebasedb.list(`title/${uid}/list`);
-    
+    this.toDoList =  this.firebasedb.list(`title/${uid}/list`);
+    return this.toDoList;
   }
 
   getUserDetails(uid){
