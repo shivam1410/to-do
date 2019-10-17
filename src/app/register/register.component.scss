@@ -1,0 +1,39 @@
+
+.main-div{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d4792;
+    .parent-form{
+        width: 400px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .registerHeading{
+            color:#2d4792;
+            margin-bottom: 0;
+            font-weight: normal;
+            font-size: 22px;
+        }
+        .logo{
+            height: 125px;
+            width: 125px;
+            border-radius: 25px;
+        }
+        .register-form{
+            padding-top: 10%;
+            width: 100%;
+        }
+        .email-input{
+            width: 100%;
+        }
+        .register-button{
+            width: 30%;
+        }
+        .signup-button{
+            width: 25%;            
+        }
+    }
+}

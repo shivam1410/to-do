@@ -1,0 +1,19 @@
+<div class="main-div container-fluid">
+  <mat-card class="parent-form">
+    <h1 class="mat-headline loginHeading pb-2">Keep-It</h1>
+    <img class="logo" src="../../assets/nav-logo.png"/>
+    <form class="login-form" [formGroup]="loginForm">
+        <mat-form-field appearance="outline" class="email-input">
+          <mat-label>Email Id</mat-label>
+          <input matInput type="email" formControlName="email" class="form-control" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="email-input mb-3">
+          <mat-label>Passowrd</mat-label>
+          <input matInput type="password" class="form-control" formControlName="password" required>
+        </mat-form-field>
+      <button class="login-button " mat-raised-button color="primary" (click)="login(loginForm.value)">Login</button>
+      <button [routerLink]="['/create']" class="ml-2 signup-button" mat-raised-button (click)="signup()">Sign Up</button>
+    </form>
+  </mat-card> 
+</div>
+

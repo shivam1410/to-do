@@ -1,9 +1,10 @@
-import { TodoService } from './shared/todo.service';
-import { Component, OnInit, Inject } from '@angular/core';
+import { TodoService } from '../../services/todo.service';
+import { Component, OnInit, Inject, Input } from '@angular/core';
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialog} from '@angular/material';
 import { EditTodoComponent } from '../edit-todo/edit-todo.component';
 import { $ } from 'protractor';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
@@ -16,10 +17,15 @@ export class TodoComponent implements OnInit {
   edTitle: string;
   edDate: NgbDate;
   hover: false;
-  constructor(private toDoService: TodoService ,private dialog: MatDialog) { }
+
+  constructor(private toDoService: TodoService,
+    private dialog: MatDialog,
+    private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
-    this.toDoService.getToDoList().snapshotChanges()
+    let uid = this.activatedRoute.snapshot.queryParams['u'];
+    console.log(uid)
+    this.toDoService.getToDoList(uid).snapshotChanges()
     .subscribe(item => {
       this.toDoListArray = [];
       item.forEach(element => {
@@ -32,6 +38,7 @@ export class TodoComponent implements OnInit {
         return a.isChecked - b.isChecked ;
       });
     });
+    
   }
 
   onAdd(itemTitle,d) {

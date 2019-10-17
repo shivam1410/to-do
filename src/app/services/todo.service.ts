@@ -7,9 +7,18 @@ export class TodoService {
   toDoList: AngularFireList<any>;
   constructor(private firebasedb: AngularFireDatabase) { }
 
-  getToDoList() {
-    this.toDoList = this.firebasedb.list('title');
-    return this.toDoList;
+  getToDoList(uid) {
+    return this.firebasedb.list(`title/${uid}/list`);
+    
+  }
+
+  getUserDetails(uid){
+    return this.firebasedb.database.ref(`title/${uid}/about`);
+  }
+
+  addUserDetails(uid,data){
+    const details = this.firebasedb.database.ref(`title/${uid}/about`);
+    details.set(data);
   }
 
   addTitle(title: string,date: any) {
