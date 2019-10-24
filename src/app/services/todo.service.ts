@@ -1,13 +1,18 @@
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import { FirebaseAuth } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
   toDoList: AngularFireList<any>;
-  constructor(private firebasedb: AngularFireDatabase) { }
+  constructor(private firebasedb: AngularFireDatabase,private auth: AngularFireAuth) { }
 
+  user:any;
   getToDoList(uid) {
+    this.user = this.auth.auth.currentUser;
+    console.log(this.user);
     this.toDoList =  this.firebasedb.list(`title/${uid}/list`);
     return this.toDoList;
   }
