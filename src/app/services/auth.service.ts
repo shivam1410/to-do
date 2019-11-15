@@ -1,16 +1,16 @@
 import { AngularFireAuth} from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
-import { FirebaseApp } from 'angularfire2';
 import * as firebase from 'firebase/app';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private auth:AngularFireAuth,private firebase:FirebaseApp){
-    console.log(this.auth.auth.currentUser)
+  constructor(private auth:AngularFireAuth){
     this.auth.auth.onAuthStateChanged(u=>{
-      this.saveUid(u.uid);
+      if(u){
+        this.saveUid(u.uid);
+      }
     })
   }
   
@@ -26,9 +26,8 @@ export class AuthService {
     return this.auth.auth.signOut();
   }
   isAuthenticated(){
-    return this.auth.auth.onAuthStateChanged(u=> {
+    const u = firebase.auth().currentUser;
       return u!==null;
-    })
   }
 
   changePassword(currentPassword){

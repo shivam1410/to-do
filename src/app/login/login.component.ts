@@ -33,10 +33,7 @@ export class LoginComponent implements OnInit {
         this.authService.saveUid(u.user.uid);
         this.router.navigate(['/home'])
      })
-     .catch(e=>console.log(e));
+     .catch(e=>console.log("error3"));
   }
 
-  signup(){
-    console.log("nevigate to sign up");
-  }
 }

@@ -21,8 +21,9 @@ export class NavbarComponent implements OnInit {
         private dialog: MatDialog,
     ) {
         const uid = this.authService.getUid();
-        console.log(uid);
-        this.getDetails(uid);
+        if(this.authService.isAuthenticated()){
+          this.getDetails(uid);
+        }
      }
 
   ngOnInit() {}
@@ -31,29 +32,26 @@ export class NavbarComponent implements OnInit {
     this.toDoService.getUserDetails(uid).once('value')
     .then(u=>{
       this.user = u.val().name;
-      console.log(u.val())
     })
-    .catch(e=>console.log(e))
+    .catch(e=>console.log("error1"))
   }
 
   logOut(){
+    this.authService.removeUid();
     this.authService.logOut()
     .then(()=>{
-      this.authService.removeUid();
       this.router.navigate(['../login']);
     })
-    .catch(e=>console.log(e))
+    .catch(e=>console.log("error2"))
   }
 
   changePassword(){
+    const dialogRef = this.dialog.open(ChangePasswordComponent, {
+      width: '300px',
+    });
 
-      const dialogRef = this.dialog.open(ChangePasswordComponent, {
-        width: '300px',
-      });
-  
-      dialogRef.afterClosed().subscribe(res => {
-        console.log('The change password dialog was closed');
-      },()=>{
-      });
-    }
+    dialogRef.afterClosed().subscribe(res => {
+      console.log('The change password dialog was closed');
+    });
+  }
 }

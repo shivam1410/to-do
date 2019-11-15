@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
       this.todoService.addUserDetails(uid,{name:data.name})
       this.router.navigate(['/home'])
     })
-    .catch(e=>console.log(e));
+    .catch(e=>console.log("error4"));
   }
 
 

@@ -26,7 +26,9 @@ export class TodoComponent implements OnInit {
     private auth:AuthService
     ) {
       const uid=this.auth.getUid();
-      this.setTodoList(uid);
+      if(this.auth.isAuthenticated()){
+        this.setTodoList(uid);
+      }
     }
 
   ngOnInit() {}
