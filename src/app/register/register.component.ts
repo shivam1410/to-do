@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     .then(u=>{
       const uid=u.user.uid;
       this.todoService.addUserDetails(uid,{name:data.name})
-      this.router.navigate(['/home'], {queryParams:{u:uid}})
+      this.router.navigate(['/home'])
     })
     .catch(e=>console.log(e));
   }

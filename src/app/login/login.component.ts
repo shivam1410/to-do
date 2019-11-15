@@ -30,16 +30,13 @@ export class LoginComponent implements OnInit {
      console.log("signed in");
      this.authService.login(data)
      .then(u=>{
-      this.router.navigate(['/home'], {queryParams:{u:u.user.uid}})
+        this.authService.saveUid(u.user.uid);
+        this.router.navigate(['/home'])
      })
      .catch(e=>console.log(e));
   }
 
   signup(){
     console.log("nevigate to sign up");
-  }
-
-  signOut() {
-    console.log("singned out");
   }
 }

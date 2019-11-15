@@ -1,3 +1,4 @@
+@import '../../../css/color.scss';
 
 .navlogo{
         .logo{
@@ -6,20 +7,21 @@
     }
     
     .logo-name{
-        color:#5f6368;
+        color: $logo-grey;
         font-size: 21px;
         padding: 5px;
     }
 }
 .user{
-    .logo{
-        border-radius: 25px;
-        height: 35px;
-        width: 35px;
+    i{
+        color: $logo-grey;
+    }
+    .md-36{
+        font-size: 36px;
     }
 
     .logo-name{
-        color:#5f6368;
+        color: $logo-grey;
         font-size: 21px;
         padding: 5px;
     }

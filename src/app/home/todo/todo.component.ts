@@ -20,24 +20,16 @@ export class TodoComponent implements OnInit {
   hover: false;
   user:any;
   
-  constructor(private toDoService: TodoService,
+  constructor(
+    private toDoService: TodoService,
     private dialog: MatDialog,
-    private activatedRoute:ActivatedRoute,private auth:AuthService,private router: Router) {}
-
-  ngOnInit() {
-    let uid = this.activatedRoute.snapshot.queryParams['u'];
-    console.log("route",uid)
-    if(uid){
+    private auth:AuthService
+    ) {
+      const uid=this.auth.getUid();
       this.setTodoList(uid);
     }
-    else {
-      this.auth.getCurrentUser().onAuthStateChanged(u=>{
-        if(u.uid){
-          this.setTodoList(u.uid)
-        }
-      })
-    }
-  }
+
+  ngOnInit() {}
 
   setTodoList(uid){
     this.toDoService.getToDoList(uid).snapshotChanges()
@@ -86,7 +78,6 @@ export class TodoComponent implements OnInit {
       }
     },
     ()=>{
-      console.log("ddd")
     });
   }
 

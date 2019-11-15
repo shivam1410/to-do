@@ -11,13 +11,7 @@ import { AuthService } from '../services/auth.service';
 export class HomeComponent implements OnInit {
 
   user:any;
-  constructor(private auth: AuthService,private activatedRoute:ActivatedRoute,private router:Router,private ngZone:NgZone) {
-    this.auth.getCurrentUser().onAuthStateChanged(u=>{
-      if(u.uid){
-        this.ngZone.run(()=>this.router.navigate([],{queryParams:{u: u.uid}}));
-      }
-    })
-   }
+  constructor() {}
 
   ngOnInit() {
    

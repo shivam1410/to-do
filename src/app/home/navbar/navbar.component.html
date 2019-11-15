@@ -9,14 +9,14 @@
 
       <a class="nav-link d-flex align-items-center" [matMenuTriggerFor]="menu" role="button" data-toggle="dropdown" style="cursor: pointer;" >
         <div class="d-flex align-items-center pr-3 pl-2">
-          <img src="../../assets/profile.jpg" class="logo">
+          <i class="material-icons md-36">account_circle</i>
           <span class="logo-name">{{user | titlecase}}</span>
           <i class="material-icons">keyboard_arrow_down</i>
         </div>
       </a>
 
       <mat-menu #menu="matMenu">
-        <button mat-menu-item><a style="padding: 0;" class="dropdown-item d-flex align-items-center" routerLink="change-password">
+        <button mat-menu-item><a style="padding: 0;" class="dropdown-item d-flex align-items-center" (click)="changePassword()">
           <i class="material-icons pr-3"> security</i>
           Change password
         </a></button>

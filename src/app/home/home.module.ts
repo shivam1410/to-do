@@ -15,13 +15,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home.routing';
 import { CommonModule } from '@angular/common';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
     TodoComponent,
     EditTodoComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ChangePasswordComponent
   ],
   imports: [
     FormsModule,
@@ -34,6 +36,6 @@ import { CommonModule } from '@angular/common';
   ],
   providers: [],
   bootstrap: [],
-  entryComponents: [EditTodoComponent]
+  entryComponents: [EditTodoComponent,ChangePasswordComponent]
 })
 export class HomeModule { }
