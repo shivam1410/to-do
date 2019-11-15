@@ -4,7 +4,8 @@ import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialog} from '@angular/material';
 import { EditTodoComponent } from '../edit-todo/edit-todo.component';
 import { $ } from 'protractor';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-todo',
@@ -17,14 +18,28 @@ export class TodoComponent implements OnInit {
   edTitle: string;
   edDate: NgbDate;
   hover: false;
-
+  user:any;
+  
   constructor(private toDoService: TodoService,
     private dialog: MatDialog,
-    private activatedRoute:ActivatedRoute) { }
+    private activatedRoute:ActivatedRoute,private auth:AuthService,private router: Router) {}
 
   ngOnInit() {
     let uid = this.activatedRoute.snapshot.queryParams['u'];
-    console.log(uid)
+    console.log("route",uid)
+    if(uid){
+      this.setTodoList(uid);
+    }
+    else {
+      this.auth.getCurrentUser().onAuthStateChanged(u=>{
+        if(u.uid){
+          this.setTodoList(u.uid)
+        }
+      })
+    }
+  }
+
+  setTodoList(uid){
     this.toDoService.getToDoList(uid).snapshotChanges()
     .subscribe(item => {
       this.toDoListArray = [];
@@ -38,7 +53,6 @@ export class TodoComponent implements OnInit {
         return a.isChecked - b.isChecked ;
       });
     });
-    
   }
 
   onAdd(itemTitle,d) {

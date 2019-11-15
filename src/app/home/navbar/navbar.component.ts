@@ -23,7 +23,20 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
 
     let uid = this.routes.snapshot.queryParams['u'];
+    if(uid){
+      this.getDetails(uid)
+    }
+    else {
+      this.authService.getCurrentUser().onAuthStateChanged(u=>{
+        if(u.uid){
+          this.getDetails(u.uid)
+        }
+      })
+    }
+   
+  }
 
+  getDetails(uid){
     this.toDoService.getUserDetails(uid).once('value')
     .then(u=>{
       this.user = u.val().name;
@@ -31,7 +44,6 @@ export class NavbarComponent implements OnInit {
     })
     .catch(e=>console.log(e))
   }
-
   logOut(){
     this.authService.logOut()
     .then(()=>{
