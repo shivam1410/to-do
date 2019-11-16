@@ -46,6 +46,8 @@ export class TodoComponent implements OnInit {
       this.toDoListArray.sort((a, b) => {
         return a.isChecked - b.isChecked ;
       });
+    },e=>{
+      console.log("logged out or unauthorized access")
     });
   }
 

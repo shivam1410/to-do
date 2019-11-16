@@ -26,8 +26,9 @@ export class AuthService {
     return this.auth.auth.signOut();
   }
   isAuthenticated(){
-    const u = firebase.auth().currentUser;
-      return u!==null;
+    if(this.getUid()){
+      return true;
+    }
   }
 
   changePassword(currentPassword){
