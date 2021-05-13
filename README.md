@@ -1,10 +1,11 @@
 # ToDo
 
- 1. basic ToDo app generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.\
- 2. This project is generated as an assignment for an organisation,\
- 3. App gives user the ability to create a to-do schedule list along with the date for each task.\
- 4. user can edit the task as well as the date.  User can tick if the task is completed , then the task will automatically move to bottom of the list.\
- 5. every task  is provided with an option to delete it.
+ 1. [DO NOT DELETE] used few concepts like firebaselist here
+ 2. Basic ToDo app generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.\
+ 3. This project is generated as an assignment for an organisation,\
+ 4. App gives user the ability to create a to-do schedule list along with the date for each task.\
+ 5. user can edit the task as well as the date.  User can tick if the task is completed , then the task will automatically move to bottom of the list.\
+ 6. every task  is provided with an option to delete it.
  
  # Frameworks/libraries used
   
